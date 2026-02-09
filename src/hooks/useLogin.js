@@ -43,6 +43,8 @@ export const useLogin =()=>{
             });
 
             alert(`${decoded.name}님, 환영합니다!`);
+            queryClient.invalidateQueries({ queryKey: ['board'] }); 
+            queryClient.invalidateQueries({ queryKey: ['boardDetail'] });
             navigate('/');
         },
         onError : (error) =>{
